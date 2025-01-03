@@ -29,3 +29,25 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.responsive-chart-container {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  aspect-ratio: 1; /* Maintain square aspect ratio */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .responsive-chart-container {
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-chart-container {
+    max-width: 600px;
+  }
+}

@@ -9,12 +9,12 @@ const Card: React.FC<CardProps> = ({ mode }) => {
 
   return (
     <div
-      className={`flex justify-between flex-col 3xl:min-w-[350px] 2xl:min-w-[350px] 3xl:w-full 2xl:w-full md:w-full md:min-w-[300px] 3xl:h-[235px] 2xl:h-[235px] min-w-[265px] h-[170px] xl:h-[220px] lg:h-[200px] ${
+      className={`flex justify-between flex-col 3xl:min-w-[350px] 2xl:min-w-[350px] 3xl:w-full 2xl:w-full md:w-full md:min-w-[300px] 3xl:h-[235px] 2xl:h-[235px] min-w-[265px] h-[170px] xl:h-[220px] lg:h-[200px] border border-gray-50 ${
         isDarkMode ? 'bg-card-gradient' : 'bg-white'
       } items-center rounded-[25px]`}
     >
-      <div className='flex items-center justify-between w-full 3xl:pt-6 2xl:pt-6 pt-5 3xl:px-6 2xl:px-6 px-5'>
-        <div className='flex flex-col'>
+      <div className="flex items-center justify-between w-full 3xl:pt-6 2xl:pt-6 pt-5 3xl:px-6 2xl:px-6 px-5">
+        <div className="flex flex-col">
           <p
             className={`font-normal 3xl:text-[12px] 2xl:text-[12px] text-[11px] font-lato ${
               isDarkMode ? 'text-white' : 'text-black'
@@ -31,14 +31,14 @@ const Card: React.FC<CardProps> = ({ mode }) => {
           </p>
         </div>
         <img
-          src={isDarkMode ? '/Chip_Card.png' : '/Chip_Card_Light.png'}
-          alt='Chip Card'
-          className='3xl:w-[35px] 2xl:w-[35px] 3xl:h-[35px] 2xl:h-[35px] w-[29px] h-[29px]'
+          src={isDarkMode ? '/Chip_Card.png' : '/Chip-Card-Light.png'}
+          alt="Chip Card"
+          className="3xl:w-[35px] 2xl:w-[35px] 3xl:h-[35px] 2xl:h-[35px] w-[29px] h-[29px]"
         />
       </div>
 
-      <div className='w-full flex items-center 3xl:px-6 2xl:px-6 px-5 3xl:space-x-12 2xl:space-x-12 space-x-10'>
-        <div className='flex flex-col'>
+      <div className="w-full flex items-center 3xl:px-6 2xl:px-6 px-5 3xl:space-x-12 2xl:space-x-12 space-x-10">
+        <div className="flex flex-col">
           <p
             className={`3xl:text-[12px] 2xl:text-[12px] text-[10px] ${
               isDarkMode ? 'text-[#FFFFFFB2]' : 'text-gray-500'
@@ -54,7 +54,7 @@ const Card: React.FC<CardProps> = ({ mode }) => {
             Eddy Cusuma
           </p>
         </div>
-        <div className='flex flex-col'>
+        <div className="flex flex-col">
           <p
             className={`3xl:text-[12px] 2xl:text-[12px] text-[10px] ${
               isDarkMode ? 'text-[#FFFFFFB2]' : 'text-gray-500'
@@ -86,8 +86,8 @@ const Card: React.FC<CardProps> = ({ mode }) => {
         </h3>
         <img
           src={isDarkMode ? '/mastercard-dark.png' : '/mastercard-light.png'}
-          alt='Mastercard Logo'
-          className='3xl:w-[44px] 2xl:w-[44px] 3xl:h-[30px] 2xl:h-[30px] w-[27px] h-[18px]'
+          alt="Mastercard Logo"
+          className="3xl:w-[44px] 2xl:w-[44px] 3xl:h-[30px] 2xl:h-[30px] w-[27px] h-[18px]"
         />
       </div>
     </div>

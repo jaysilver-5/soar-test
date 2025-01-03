@@ -6,7 +6,11 @@ interface IconProps {
   fill?: string;
 }
 
-const TransactionIcon: React.FC<IconProps> = ({ width = 25, height = 25, fill = "#B1B1B1" }) => {
+const TransactionIcon: React.FC<IconProps> = ({
+  width = 25,
+  height = 25,
+  fill = '#B1B1B1',
+}) => {
   return (
     <svg
       width={width}

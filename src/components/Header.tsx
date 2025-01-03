@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import { IoMenu, IoSettingsOutline } from 'react-icons/io5';
 import SearchBar from './ui/SearchBar';
@@ -12,9 +12,9 @@ const Header = () => {
       {/* Small Screens (xl and below) */}
       <div className="flex xl:hidden justify-between items-center w-full">
         {/* Hamburger Icon */}
-        <IoMenu 
+        <IoMenu
           onClick={() => setShowSideBar(!showSideBar)}
-          className="text-2xl text-primary" 
+          className="text-2xl text-primary"
         />
 
         {/* Title */}
@@ -81,11 +81,11 @@ const Header = () => {
         </div>
       </div>
 
-      { showSideBar && (
-        <div className='absolute top-0 left-0 h-screen bg-white border-r border-gray-200 py-5 z-50'>
+      {showSideBar && (
+        <div className="absolute top-0 left-0 h-screen bg-white border-r border-gray-200 py-5 z-50">
           <Sidebar onClose={() => setShowSideBar(false)} />
         </div>
-      )} 
+      )}
     </div>
   );
 };

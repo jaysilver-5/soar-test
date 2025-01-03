@@ -2,14 +2,18 @@
 import React from 'react';
 
 export interface TransactionItemProps {
-    mode: string; // Add new types here
-    title: string;
-    amount: number;
-    date: string;
-  }
-  
+  mode: string; // Add new types here
+  title: string;
+  amount: number;
+  date: string;
+}
 
-const TransactionItem: React.FC<TransactionItemProps> = ({ mode, title, amount, date }) => {
+const TransactionItem: React.FC<TransactionItemProps> = ({
+  mode,
+  title,
+  amount,
+  date,
+}) => {
   // Determine icon based on mode
   const getIconSrc = (): string => {
     switch (mode) {
@@ -42,9 +46,7 @@ const TransactionItem: React.FC<TransactionItemProps> = ({ mode, title, amount, 
           <p className="3xl:text-[15px] font-primary text-[#718EBF]">{date}</p>
         </div>
       </div>
-      <h3
-        className={`3xl:text-[15px] font-primary ${amountColor} text-[11px]`}
-      >
+      <h3 className={`3xl:text-[15px] font-primary ${amountColor} text-[11px]`}>
         {amount < 0 ? `-$${Math.abs(amount)}` : `+$${amount}`}
       </h3>
     </div>

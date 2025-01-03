@@ -17,7 +17,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        primary: ['Inter', 'sans-serif'], 
+        primary: ['Inter', 'sans-serif'],
         lato: ['Lato', 'sans-serif'],
       },
       colors: {
@@ -25,7 +25,8 @@ export default {
       },
       backgroundImage: {
         'card-gradient': 'linear-gradient(to bottom right, #5B5A6F, #000)',
-        'white-to-transparent': 'linear-gradient(to bottom right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))',
+        'white-to-transparent':
+          'linear-gradient(to bottom right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))',
       },
     },
   },

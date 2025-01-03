@@ -26,15 +26,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className=' w-screen min-h-screen flex'
-      >
+      <body className=" w-screen min-h-screen flex">
         <div className="w-fit hidden xl:block">
           <Sidebar />
         </div>
 
-
-        <div className='flex-grow w-full flex full bg-white flex-col'>
+        <div className="flex-grow w-full flex full bg-white flex-col">
           <Header />
           {children}
         </div>

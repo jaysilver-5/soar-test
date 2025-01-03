@@ -42,10 +42,12 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
       }`}
     >
       {/* Close button for lg and below */}
-      <div className='flex items-center justify-between px-4 xl:hidden'>
-        <h1 className='font-extrabold text-[5vw] sm:text-[20px] text-primary'>Soar Task</h1>
+      <div className="flex items-center justify-between px-4 xl:hidden">
+        <h1 className="font-extrabold text-[5vw] sm:text-[20px] text-primary">
+          Soar Task
+        </h1>
         <button
-          className='text-black text-xl'
+          className="text-black text-xl"
           onClick={() => {
             if (onClose) {
               onClose(); // Call the provided function if it exists
@@ -59,19 +61,19 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
       </div>
 
       {/* Sidebar header */}
-      <div className='flex flex-row space-x-2 w-full xl:px-4 items-center justify-center'>
+      <div className="flex flex-row space-x-2 w-full xl:px-4 items-center justify-center">
         <img
-          src='/logo.png'
-          alt='Logo'
-          className='hidden xl:inline-block w-5 sm:w-6 h-[5vw] sm:h-[30px]'
+          src="/logo.png"
+          alt="Logo"
+          className="hidden xl:inline-block w-5 sm:w-6 h-[5vw] sm:h-[30px]"
         />
-        <h1 className='font-extrabold font-primary text-[5vw] sm:text-[20px] lg:text-[20px] text-primary hidden xl:block'>
+        <h1 className="font-extrabold font-primary text-[5vw] sm:text-[20px] lg:text-[20px] text-primary hidden xl:block">
           Soar Task
         </h1>
       </div>
 
       {/* Menu Items */}
-      <div className='flex flex-col mt-10 space-y-1 sm:space-y-1.5 lg:space-y-2'>
+      <div className="flex flex-col mt-10 space-y-1 sm:space-y-1.5 lg:space-y-2">
         {menuItems.map((item) => {
           const Icon = item.icon;
           const isActive = active === item.name;
@@ -84,13 +86,13 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
               onClick={() => setActive(item.name)}
             >
               {isActive && (
-                <div className='absolute left-0 top-0 h-full w-[2%] bg-black rounded-r-md pointer-events-none'></div>
+                <div className="absolute left-0 top-0 h-full w-[2%] bg-black rounded-r-md pointer-events-none"></div>
               )}
-              <div className='flex items-center justify-center w-[4vw] sm:w-[25px] h-[4vw] sm:h-[25px]'>
+              <div className="flex items-center justify-center w-[4vw] sm:w-[25px] h-[4vw] sm:h-[25px]">
                 <Icon
                   fill={isActive ? '#232323' : '#B1B1B1'}
-                  width='3vw'
-                  height='3vw'
+                  width="3vw"
+                  height="3vw"
                 />
               </div>
               <h1
