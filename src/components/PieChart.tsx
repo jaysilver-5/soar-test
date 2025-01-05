@@ -1,6 +1,6 @@
-'use client';
-import React, { useEffect, useRef } from 'react';
-import * as d3 from 'd3';
+"use client";
+import React, { useEffect, useRef } from "react";
+import * as d3 from "d3";
 
 interface PieChartProps {
   data: { label: string; value: number }[];
@@ -22,7 +22,7 @@ const PieChart: React.FC<PieChartProps> = ({ data, colors }) => {
   useEffect(() => {
     if (chartRef.current) {
       // Clear the previous chart
-      d3.select(chartRef.current).selectAll('*').remove();
+      d3.select(chartRef.current).selectAll("*").remove();
 
       // Determine dynamic size
       const size = getChartSize();
@@ -36,10 +36,10 @@ const PieChart: React.FC<PieChartProps> = ({ data, colors }) => {
       // Create SVG container
       const svg = d3
         .select(chartRef.current)
-        .attr('width', width)
-        .attr('height', height)
-        .append('g')
-        .attr('transform', `translate(${centerX}, ${centerY})`);
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", `translate(${centerX}, ${centerY})`);
 
       // Pie generator
       const pie = d3
@@ -58,22 +58,22 @@ const PieChart: React.FC<PieChartProps> = ({ data, colors }) => {
 
       // Bind data and create slices
       svg
-        .selectAll('path')
+        .selectAll("path")
         .data(pie(data))
         .enter()
-        .append('path')
-        .attr('d', arc as any)
-        .attr('fill', (d, i) => colors[i % colors.length])
-        .attr('stroke', '#fff')
-        .attr('stroke-width', 2);
+        .append("path")
+        .attr("d", arc as any)
+        .attr("fill", (d, i) => colors[i % colors.length])
+        .attr("stroke", "#fff")
+        .attr("stroke-width", 2);
 
       // Add labels and percentages
       svg
-        .selectAll('.slice-text-group')
+        .selectAll(".slice-text-group")
         .data(pie(data))
         .enter()
-        .append('g')
-        .attr('transform', (d) => {
+        .append("g")
+        .attr("transform", (d) => {
           const [x, y] = arc.centroid(d);
           return `translate(${x}, ${y})`;
         })
@@ -82,25 +82,25 @@ const PieChart: React.FC<PieChartProps> = ({ data, colors }) => {
 
           // Add percentage text
           group
-            .append('text')
-            .attr('text-anchor', 'middle')
-            .attr('font-size', '16px')
-            .attr('fill', '#fff')
+            .append("text")
+            .attr("text-anchor", "middle")
+            .attr("font-size", "16px")
+            .attr("fill", "#fff")
             .text(`${d.data.value}%`);
 
           // Add category label
           group
-            .append('text')
-            .attr('dy', '1.2em')
-            .attr('text-anchor', 'middle')
-            .attr('font-size', '12px')
-            .attr('fill', '#fff')
+            .append("text")
+            .attr("dy", "1.2em")
+            .attr("text-anchor", "middle")
+            .attr("font-size", "12px")
+            .attr("fill", "#fff")
             .text(d.data.label);
         });
     }
   }, [data, colors]);
 
-  return <svg ref={chartRef} style={{ border: 'gray' }}></svg>;
+  return <svg ref={chartRef} style={{ border: "gray" }}></svg>;
 };
 
 export default PieChart;

@@ -1,7 +1,7 @@
-'use client';
-import React, { useRef, useState, useEffect } from 'react';
-import { FaAngleRight } from 'react-icons/fa6';
-import { GrSend } from 'react-icons/gr';
+"use client";
+import React, { useRef, useState, useEffect } from "react";
+import { FaAngleRight } from "react-icons/fa6";
+import { GrSend } from "react-icons/gr";
 
 interface User {
   id: number;
@@ -15,19 +15,19 @@ const QuickTransfer: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [amount, setAmount] = useState<number | null>(10.0);
   const [amountError, setAmountError] = useState<string | null>(null);
-  const [showModal, setShowModal] = useState<'success' | 'error' | null>(null);
+  const [showModal, setShowModal] = useState<"success" | "error" | null>(null);
   const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('/api/quick-transfer');
+        const response = await fetch("/api/quick-transfer");
         const data = await response.json();
         setUsers(data);
         setSelectedUserId(data[0]?.id || null); // Default to the first user
       } catch (error) {
-        console.error('Error fetching users:', error);
+        console.error("Error fetching users:", error);
       }
     };
 
@@ -36,21 +36,21 @@ const QuickTransfer: React.FC = () => {
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 150, behavior: 'smooth' });
+      scrollContainerRef.current.scrollBy({ left: 150, behavior: "smooth" });
     }
   };
 
   const handleAmountSubmit = () => {
     if (amount === null || amount === 0) {
-      setAmountError('Amount cannot be empty or zero');
-      setShowModal('error');
+      setAmountError("Amount cannot be empty or zero");
+      setShowModal("error");
       return;
     }
 
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      setShowModal('success');
+      setShowModal("success");
     }, 2000);
   };
 
@@ -72,29 +72,29 @@ const QuickTransfer: React.FC = () => {
                 key={user.id}
                 className={`flex flex-col items-center justify-center flex-shrink-0 cursor-pointer transition-transform duration-300 ${
                   selectedUserId === user.id
-                    ? 'scale-105 font-bold text-black z-10'
-                    : 'scale-100 text-[#232323]'
+                    ? "scale-105 font-bold text-black z-10"
+                    : "scale-100 text-[#232323]"
                 }`}
                 onClick={() => handleUserClick(user.id)}
               >
                 <img
                   src={user.imgSrc}
                   className={`h-[50px] xl:w-[75px] xl:h-[75px] w-[50px] rounded-full transition-transform duration-300 ${
-                    selectedUserId === user.id ? 'scale-100 z-10' : 'scale-100'
+                    selectedUserId === user.id ? "scale-100 z-10" : "scale-100"
                   }`}
                   alt={user.name}
                 />
                 <div className="flex flex-col items-center justify-center">
                   <h3
                     className={`font-primary 3xl:text-[16px] 2xl:text-[16px] text-[12px] ${
-                      selectedUserId === user.id ? 'font-bold' : 'font-normal'
+                      selectedUserId === user.id ? "font-bold" : "font-normal"
                     }`}
                   >
                     {user.name}
                   </h3>
                   <p
                     className={`text-[#718EBF] font-primary 3xl:text-[16px] 2xl:text-[16px] text-[12px] 3xl:leading-[18px] leading-[15px] ${
-                      selectedUserId === user.id ? 'font-bold' : 'font-normal'
+                      selectedUserId === user.id ? "font-bold" : "font-normal"
                     }`}
                   >
                     {user.role}
@@ -144,7 +144,7 @@ const QuickTransfer: React.FC = () => {
       </div>
 
       {/* Modals */}
-      {showModal === 'success' && (
+      {showModal === "success" && (
         <div className="fixed inset-0 bg-white bg-opacity-80 flex items-center justify-center">
           <div className="bg-white rounded-lg shadow-lg p-5 text-center">
             <h2 className="text-black font-bold text-lg">Success</h2>
@@ -160,7 +160,7 @@ const QuickTransfer: React.FC = () => {
           </div>
         </div>
       )}
-      {showModal === 'error' && (
+      {showModal === "error" && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center">
           <div className="bg-white rounded-lg shadow-lg p-5 text-center">
             <h2 className="text-black font-bold text-lg">Error</h2>

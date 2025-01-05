@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import TransactionItem from './ui/TransactionItem';
+import React, { useEffect, useState } from "react";
+import TransactionItem from "./ui/TransactionItem";
 
 interface Transaction {
   mode: string;
@@ -17,11 +17,11 @@ const RecentTransactions: React.FC = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const response = await fetch('/api/recent-transactions');
+        const response = await fetch("/api/recent-transactions");
         const data = await response.json();
         setTransactions(data);
       } catch (error) {
-        console.error('Error fetching recent transactions:', error);
+        console.error("Error fetching recent transactions:", error);
       } finally {
         setLoading(false);
       }
@@ -37,8 +37,8 @@ const RecentTransactions: React.FC = () => {
         bg-RecentTransactions-gradient rounded-[25px] 3xl:p-6 p-[15px] overflow-y-auto
       `}
       style={{
-        scrollbarWidth: 'none',
-        position: 'relative',
+        scrollbarWidth: "none",
+        position: "relative",
       }}
     >
       {loading ? (

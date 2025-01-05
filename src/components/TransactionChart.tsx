@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Chart as ChartJS,
@@ -7,10 +7,10 @@ import {
   LinearScale,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
-import { ChartOptions } from 'chart.js';
-import { useEffect, useState } from 'react';
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
+import { ChartOptions } from "chart.js";
+import { useEffect, useState } from "react";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
@@ -20,27 +20,27 @@ const TransactionChart = () => {
   useEffect(() => {
     const fetchTransactionData = async () => {
       try {
-        const response = await fetch('/api/transactions');
+        const response = await fetch("/api/transactions");
         const data = await response.json();
         setChartData(data);
       } catch (error) {
-        console.error('Error fetching transaction data:', error);
+        console.error("Error fetching transaction data:", error);
       }
     };
 
     fetchTransactionData();
   }, []);
 
-  const options: ChartOptions<'bar'> = {
+  const options: ChartOptions<"bar"> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'top',
-        align: 'end',
+        position: "top",
+        align: "end",
         labels: {
           usePointStyle: true,
-          pointStyle: 'circle',
+          pointStyle: "circle",
           padding: 10,
         },
       },
@@ -67,7 +67,7 @@ const TransactionChart = () => {
   };
 
   return (
-    <div style={{ width: '100%', height: '100%' }}>
+    <div style={{ width: "100%", height: "100%" }}>
       {chartData ? (
         <Bar data={chartData} options={options} />
       ) : (
