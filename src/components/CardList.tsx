@@ -48,7 +48,7 @@ const CardList: React.FC = () => {
       />
 
       <Card
-        mode="dark"
+        mode="light"
         cardName={cardData?.cardName || 'Loading...'}
         amount={cardData?.amount || '$0'}
         cardNumber={cardData?.cardNumber || '**** **** **** ****'}
