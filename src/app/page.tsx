@@ -11,7 +11,9 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@/app/store';
 
 export default function Home() {
-  const sidebarStatus = useSelector((state: RootState) => state.user['sidebar-status']);
+  const sidebarStatus = useSelector(
+    (state: RootState) => state.user['sidebar-status'],
+  );
   console.log(sidebarStatus);
   return (
     <>
@@ -20,4 +22,3 @@ export default function Home() {
     </>
   );
 }
-

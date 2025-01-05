@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
 
 const mockUsers = [
   { id: 1, name: 'Livia Bator', role: 'CEO', imgSrc: '/livia.png' },

@@ -36,22 +36,25 @@ const initialState: UserState = {
 };
 
 export const userSlice = createSlice({
-    name: 'user',
-    initialState,
-    reducers: {
-      updateUserProfile: (state, action: PayloadAction<Partial<Omit<UserState, 'transaction'>>>) => {
-        const { 'sidebar-status': _, ...updatedFields } = action.payload; // Exclude 'sidebar-status'
-        return { ...state, ...updatedFields };
-      },
-      addTransaction: (state, action: PayloadAction<Transaction>) => {
-        state.transaction.push(action.payload);
-      },
-      updateSidebarStatus: (state, action: PayloadAction<string>) => {
-        state['sidebar-status'] = action.payload;
-      },
+  name: 'user',
+  initialState,
+  reducers: {
+    updateUserProfile: (
+      state,
+      action: PayloadAction<Partial<Omit<UserState, 'transaction'>>>,
+    ) => {
+      const { 'sidebar-status': _, ...updatedFields } = action.payload; // Exclude 'sidebar-status'
+      return { ...state, ...updatedFields };
     },
-  });
-  
+    addTransaction: (state, action: PayloadAction<Transaction>) => {
+      state.transaction.push(action.payload);
+    },
+    updateSidebarStatus: (state, action: PayloadAction<string>) => {
+      state['sidebar-status'] = action.payload;
+    },
+  },
+});
 
-export const { updateUserProfile, addTransaction, updateSidebarStatus } = userSlice.actions;
+export const { updateUserProfile, addTransaction, updateSidebarStatus } =
+  userSlice.actions;
 export default userSlice.reducer;

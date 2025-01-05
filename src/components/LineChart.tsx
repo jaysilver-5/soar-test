@@ -15,7 +15,14 @@ import {
 } from 'chart.js';
 
 // Register the necessary chart components
-ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Filler);
+ChartJS.register(
+  LineElement,
+  PointElement,
+  LinearScale,
+  CategoryScale,
+  Tooltip,
+  Filler,
+);
 
 const LineChart: React.FC = () => {
   const [chartData, setChartData] = useState<ChartData<'line'> | null>(null);

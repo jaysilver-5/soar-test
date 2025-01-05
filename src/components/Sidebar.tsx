@@ -13,14 +13,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateSidebarStatus } from '@/app/store/slices/userSlice';
 import { RootState } from '@/app/store';
 
-
 // Define the prop type for the component
 interface SidebarProps {
   onClose?: () => void; // Optional function prop
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
-  const sidebarStatus = useSelector((state: RootState) => state.user['sidebar-status']);                      
+  const sidebarStatus = useSelector(
+    (state: RootState) => state.user['sidebar-status'],
+  );
   const dispatch = useDispatch();
 
   const handleUpdateSidebarStatus = (name: string) => {
@@ -28,7 +29,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
       dispatch(updateSidebarStatus(name));
     }
   };
-  
+
   const [active, setActive] = useState(sidebarStatus || 'Dashboard');
   const [isOpen, setIsOpen] = useState(true);
 

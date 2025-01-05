@@ -20,7 +20,6 @@ interface FormData {
   country: string;
 }
 
-
 const Settings: React.FC = () => {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user);
@@ -42,7 +41,7 @@ const Settings: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [success, setSuccess] = useState<boolean>(false);
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
-  console.log(formSubmitted)
+  console.log(formSubmitted);
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [id]: value }));
@@ -73,12 +72,12 @@ const Settings: React.FC = () => {
   const handleSave = () => {
     setFormSubmitted(true);
     const errors = validateForm();
-  
+
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
       return;
     }
-  
+
     setLoading(true);
     setSuccess(false);
     setFormSubmitted(false); // Reset submission state after success
@@ -88,7 +87,6 @@ const Settings: React.FC = () => {
       setSuccess(true);
     }, 3000);
   };
-  
 
   const tabs = [
     { name: 'Edit Profile', id: 'edit-profile' },
@@ -137,17 +135,17 @@ const Settings: React.FC = () => {
 
             {/* Form Inputs */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Input
+              <Input
                 label="Your Name"
                 placeholder="Charlene Reed"
                 id="name"
                 onChange={handleInputChange}
                 isFull={!!formData.name.trim()}
                 formSubmitted={formSubmitted}
-                />
+              />
               <Input
                 label="User Name"
-                placeholder='Charlene'
+                placeholder="Charlene"
                 id="username"
                 onChange={handleInputChange}
                 isFull={!!formData.username.trim()}
@@ -155,7 +153,7 @@ const Settings: React.FC = () => {
               />
               <Input
                 label="Email"
-                placeholder='charlenereed@gmail.com'
+                placeholder="charlenereed@gmail.com"
                 id="email"
                 onChange={handleInputChange}
                 isFull={!!formData.email.trim()}
@@ -163,7 +161,7 @@ const Settings: React.FC = () => {
               />
               <Input
                 label="Password"
-                placeholder='********'
+                placeholder="********"
                 id="password"
                 onChange={handleInputChange}
                 isFull={!!formData.password.trim()}
@@ -177,7 +175,7 @@ const Settings: React.FC = () => {
               />
               <Input
                 label="Present Address"
-                placeholder='San Jose, California, USA'
+                placeholder="San Jose, California, USA"
                 id="present-address"
                 onChange={handleInputChange}
                 isFull={!!formData['present-address'].trim()}
@@ -185,7 +183,7 @@ const Settings: React.FC = () => {
               />
               <Input
                 label="Permanent Address"
-                placeholder='San Jose, California, USA'
+                placeholder="San Jose, California, USA"
                 id="permanent-address"
                 onChange={handleInputChange}
                 isFull={!!formData['permanent-address'].trim()}
@@ -193,7 +191,7 @@ const Settings: React.FC = () => {
               />
               <Input
                 label="City"
-                placeholder='San Jose'
+                placeholder="San Jose"
                 id="city"
                 onChange={handleInputChange}
                 isFull={!!formData.city.trim()}
@@ -201,7 +199,7 @@ const Settings: React.FC = () => {
               />
               <Input
                 label="Postal Code"
-                placeholder='45962'
+                placeholder="45962"
                 id="postal-code"
                 onChange={handleInputChange}
                 isFull={!!formData['postal-code'].trim()}
@@ -209,7 +207,7 @@ const Settings: React.FC = () => {
               />
               <Input
                 label="Country"
-                placeholder='USA'
+                placeholder="USA"
                 id="country"
                 onChange={handleInputChange}
                 isFull={formSubmitted && !!formData.country.trim()}
@@ -221,7 +219,9 @@ const Settings: React.FC = () => {
               <button
                 onClick={handleSave}
                 className={`px-6 py-3 bg-black text-white rounded-lg flex items-center justify-center transition ${
-                  loading ? 'opacity-60 cursor-not-allowed' : 'hover:bg-gray-800'
+                  loading
+                    ? 'opacity-60 cursor-not-allowed'
+                    : 'hover:bg-gray-800'
                 }`}
                 disabled={loading}
               >
@@ -245,31 +245,38 @@ const Settings: React.FC = () => {
               >
                 ✕
               </button>
-              <h3 className="text-lg font-bold mb-4 text-black">Profile Updated Successfully!</h3>
+              <h3 className="text-lg font-bold mb-4 text-black">
+                Profile Updated Successfully!
+              </h3>
               <p className="text-black">Name: {user.name}</p>
               <p className="text-black">Email: {user.email}</p>
               <p className="text-black">Username: {user.username}</p>
 
-              <p className="mt-4">This is to demonstrate the use of redux and redux state persist.</p>
+              <p className="mt-4">
+                This is to demonstrate the use of redux and redux state persist.
+              </p>
             </div>
           </div>
         )}
 
         {/* Error Message */}
         {formSubmitted && Object.keys(formErrors).length > 0 && (
-            <div className="fixed inset-0 text-black flex items-center justify-center border">
-                <div className="bg-white border flex justify-center items-center p-8 rounded-lg shadow-lg relative">
-                <button
-                    onClick={() => {setFormErrors({})}}
-                    className="absolute top-2 right-2 text-gray-500 text-xl hover:text-black"
-                >
-                    ✕
-                </button>
-                <h3 className="text-lg font-bold mb-4 text-black">Please fill all required fields.</h3>
-                </div>
+          <div className="fixed inset-0 text-black flex items-center justify-center border">
+            <div className="bg-white border flex justify-center items-center p-8 rounded-lg shadow-lg relative">
+              <button
+                onClick={() => {
+                  setFormErrors({});
+                }}
+                className="absolute top-2 right-2 text-gray-500 text-xl hover:text-black"
+              >
+                ✕
+              </button>
+              <h3 className="text-lg font-bold mb-4 text-black">
+                Please fill all required fields.
+              </h3>
             </div>
-            )}
-
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import Card from "./Card";
+import React, { useEffect, useState } from 'react';
+import Card from './Card';
 
 interface CardData {
   id: number;
@@ -21,14 +21,14 @@ const CardModal: React.FC<CardModalProps> = ({ showModal, onClose }) => {
     if (showModal) {
       const fetchCards = async () => {
         try {
-          const response = await fetch("/api/card");
+          const response = await fetch('/api/card');
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
           const data: CardData[] = await response.json();
           setCards(data); // Store all cards in state
         } catch (error) {
-          console.error("Error fetching cards:", error);
+          console.error('Error fetching cards:', error);
         }
       };
 
@@ -50,7 +50,7 @@ const CardModal: React.FC<CardModalProps> = ({ showModal, onClose }) => {
             {cards.map((card, index) => (
               <Card
                 key={card.id}
-                mode={index % 2 === 0 ? "dark" : "light"} // Alternating dark and light modes
+                mode={index % 2 === 0 ? 'dark' : 'light'} // Alternating dark and light modes
                 cardName={card.cardName}
                 amount={card.amount}
                 cardNumber={card.cardNumber}

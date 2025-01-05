@@ -9,7 +9,14 @@ interface InputProps {
   formSubmitted?: boolean; // New prop to track form submission
 }
 
-const Input: React.FC<InputProps> = ({ label, placeholder, id, onChange, isFull, formSubmitted }) => {
+const Input: React.FC<InputProps> = ({
+  label,
+  placeholder,
+  id,
+  onChange,
+  isFull,
+  formSubmitted,
+}) => {
   return (
     <div className="flex flex-col">
       <label htmlFor={id} className="text-sm font-medium text-gray-700">

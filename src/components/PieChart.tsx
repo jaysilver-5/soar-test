@@ -11,14 +11,13 @@ const PieChart: React.FC<PieChartProps> = ({ data, colors }) => {
   const chartRef = useRef<SVGSVGElement>(null);
 
   // Function to calculate chart size based on screen width
-// Function to calculate chart size based on screen width
-const getChartSize = () => {
-  const screenWidth = window.innerWidth;
-  if (screenWidth >= 1440) return 290; // Increased from 270
-  if (screenWidth >= 375) return 220; // Increased from 200
-  return 170; // Increased from 150 for very small screens
-};
-
+  // Function to calculate chart size based on screen width
+  const getChartSize = () => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth >= 1440) return 290; // Increased from 270
+    if (screenWidth >= 375) return 220; // Increased from 200
+    return 170; // Increased from 150 for very small screens
+  };
 
   useEffect(() => {
     if (chartRef.current) {

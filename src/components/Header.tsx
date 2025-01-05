@@ -9,8 +9,10 @@ import { RootState } from '@/app/store';
 
 const Header = () => {
   const [showSideBar, setShowSideBar] = React.useState(false);
-  const sidebarStatus = useSelector((state: RootState) => state.user['sidebar-status']);  
-  const dispatch = useDispatch();                    
+  const sidebarStatus = useSelector(
+    (state: RootState) => state.user['sidebar-status'],
+  );
+  const dispatch = useDispatch();
   return (
     <div className="relative w-full bg-white px-4 sm:px-6 py-5 3xl:px-10 border-b border-gray-200">
       {/* Small Screens (xl and below) */}

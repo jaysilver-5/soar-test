@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface DateInputProps {
   value: string;
@@ -12,7 +12,7 @@ const DateInput: React.FC<DateInputProps> = ({
   value,
   onChange,
   required = false,
-  isFull
+  isFull,
 }) => {
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
@@ -20,9 +20,7 @@ const DateInput: React.FC<DateInputProps> = ({
 
   return (
     <div className="flex flex-col">
-      <label className="text-sm font-medium text-gray-700">
-        Date of Birth
-      </label>
+      <label className="text-sm font-medium text-gray-700">Date of Birth</label>
       <input
         id="date-input"
         type="date"

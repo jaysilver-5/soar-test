@@ -21,15 +21,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
-          <body className={`max-w-full w-screen min-h-screen flex overflow-x-hidden max-h-screen`}>
-            <div className="w-fit hidden xl:block">
-              <Sidebar />
-            </div>
-            <div className="flex-grow w-full flex full bg-white flex-col">
-              <Header />
-              {children}
-            </div>
-          </body>
+        <body
+          className={`max-w-full w-screen min-h-screen flex overflow-x-hidden max-h-screen`}
+        >
+          <div className="w-fit hidden xl:block">
+            <Sidebar />
+          </div>
+          <div className="flex-grow w-full flex full bg-white flex-col">
+            <Header />
+            {children}
+          </div>
+        </body>
       </Providers>
     </html>
   );

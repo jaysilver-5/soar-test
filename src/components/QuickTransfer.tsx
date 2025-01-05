@@ -148,7 +148,9 @@ const QuickTransfer: React.FC = () => {
         <div className="fixed inset-0 bg-white bg-opacity-80 flex items-center justify-center">
           <div className="bg-white rounded-lg shadow-lg p-5 text-center">
             <h2 className="text-black font-bold text-lg">Success</h2>
-            <p className="text-[#718EBF]">Transaction Completed Successfully!</p>
+            <p className="text-[#718EBF]">
+              Transaction Completed Successfully!
+            </p>
             <button
               className="mt-4 px-5 py-2 bg-black text-white rounded-lg hover:bg-[#3461B2]"
               onClick={() => setShowModal(null)}

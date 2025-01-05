@@ -8,7 +8,13 @@ interface CardProps {
   expiryDate: string;
 }
 
-const Card: React.FC<CardProps> = ({ mode, amount, cardNumber, expiryDate, cardName }) => {
+const Card: React.FC<CardProps> = ({
+  mode,
+  amount,
+  cardNumber,
+  expiryDate,
+  cardName,
+}) => {
   const isDarkMode = mode === 'dark';
 
   return (
@@ -31,7 +37,7 @@ const Card: React.FC<CardProps> = ({ mode, amount, cardNumber, expiryDate, cardN
               isDarkMode ? 'text-white' : 'text-black'
             }`}
           >
-            {amount} 
+            {amount}
             {/* $5,756 */}
           </p>
         </div>
@@ -98,8 +104,6 @@ const Card: React.FC<CardProps> = ({ mode, amount, cardNumber, expiryDate, cardN
           className="3xl:w-[44px] 2xl:w-[44px] 3xl:h-[30px] 2xl:h-[30px] w-[27px] h-[18px]"
         />
       </div>
-
-      
     </div>
   );
 };
