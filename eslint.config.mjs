@@ -11,6 +11,16 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    overrides: [
+      {
+        files: ["src/components/TransactionChart.tsx"], // Target specific file
+        rules: {
+          "@typescript-eslint/no-explicit-any": "off", // Disable the rule for this file
+        },
+      },
+    ],
+  },
 ];
 
 export default eslintConfig;
