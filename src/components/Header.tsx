@@ -3,10 +3,14 @@ import React from 'react';
 import { IoMenu, IoSettingsOutline } from 'react-icons/io5';
 import SearchBar from './ui/SearchBar';
 import Sidebar from './Sidebar';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateSidebarStatus } from '@/app/store/slices/userSlice';
+import { RootState } from '@/app/store';
 
 const Header = () => {
   const [showSideBar, setShowSideBar] = React.useState(false);
-
+  const sidebarStatus = useSelector((state: RootState) => state.user['sidebar-status']);  
+  const dispatch = useDispatch();                    
   return (
     <div className="relative w-full bg-white px-4 sm:px-6 py-5 3xl:px-10 border-b border-gray-200">
       {/* Small Screens (xl and below) */}
@@ -19,7 +23,7 @@ const Header = () => {
 
         {/* Title */}
         <h1 className="text-xl font-semibold text-primary leading-[24px]">
-          Overview
+          {sidebarStatus}
         </h1>
 
         {/* Profile Image */}
@@ -43,9 +47,9 @@ const Header = () => {
         </h1>
 
         {/* Right Side: Search Bar, Buttons, and Profile */}
-        <div className="flex flex-col md:flex-row items-center md:space-x-4 w-full md:w-auto">
+        <div className="flex flex-col md:flex-row items-center md:space-x-4 w-full 3xl:w-fit md:w-auto">
           {/* Search Bar */}
-          <div className="w-full md:w-[300px] lg:w-[400px]">
+          <div className="w-full md:w-[300px] lg:w-[400px] 3xl:w-fit">
             <SearchBar />
           </div>
 
@@ -53,15 +57,16 @@ const Header = () => {
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             {/* Settings Button */}
             <button
-              className="bg-[#F5F7FA] rounded-full w-[45px] h-[45px] md:w-[50px] md:h-[50px] flex items-center justify-center"
+              className="bg-[#F5F7FA] rounded-full w-[45px] h-[45px] md:w-[50px] md:h-[50px] flex items-center justify-center hover:bg-blue-100"
               style={{ minWidth: '45px', minHeight: '45px' }}
+              onClick={() => dispatch(updateSidebarStatus('Setting'))}
             >
               <IoSettingsOutline className="text-[#718EBF] text-xl md:text-2xl" />
             </button>
 
             {/* Notification Button */}
             <button
-              className="bg-[#F5F7FA] rounded-full w-[45px] h-[45px] md:w-[50px] md:h-[50px] flex items-center justify-center"
+              className="bg-[#F5F7FA] rounded-full w-[45px] h-[45px] md:w-[50px] md:h-[50px] flex items-center justify-center hover:bg-blue-100"
               style={{ minWidth: '45px', minHeight: '45px' }}
             >
               <img

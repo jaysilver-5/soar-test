@@ -1,41 +1,34 @@
 'use client';
-import React from 'react';
+
+import React, { useEffect, useState } from 'react';
 import TransactionItem from './ui/TransactionItem';
 
+interface Transaction {
+  mode: string;
+  title: string;
+  amount: number;
+  date: string;
+}
+
 const RecentTransactions: React.FC = () => {
-  // Dummy data for transactions
-  const transactions = [
-    {
-      mode: 'deposit',
-      title: 'Deposit from my Card',
-      amount: -850,
-      date: '28 January 2021',
-    },
-    {
-      mode: 'paypal',
-      title: 'Deposit Paypal',
-      amount: 2500,
-      date: '25 January 2021',
-    },
-    {
-      mode: 'people',
-      title: 'Jemi Wilson',
-      amount: 5400,
-      date: '21 January 2021',
-    },
-    {
-      mode: 'deposit',
-      title: 'ATM Withdrawal',
-      amount: -500,
-      date: '18 January 2021',
-    },
-    {
-      mode: 'paypal',
-      title: 'Bank Transfer',
-      amount: 3000,
-      date: '15 January 2021',
-    },
-  ];
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchTransactions = async () => {
+      try {
+        const response = await fetch('/api/recent-transactions');
+        const data = await response.json();
+        setTransactions(data);
+      } catch (error) {
+        console.error('Error fetching recent transactions:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTransactions();
+  }, []);
 
   return (
     <div
@@ -48,15 +41,19 @@ const RecentTransactions: React.FC = () => {
         position: 'relative',
       }}
     >
-      {transactions.map((transaction, index) => (
-        <TransactionItem
-          key={index}
-          mode={transaction.mode}
-          title={transaction.title}
-          amount={transaction.amount}
-          date={transaction.date}
-        />
-      ))}
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        transactions.map((transaction, index) => (
+          <TransactionItem
+            key={index}
+            mode={transaction.mode}
+            title={transaction.title}
+            amount={transaction.amount}
+            date={transaction.date}
+          />
+        ))
+      )}
       <style jsx>{`
         ::-webkit-scrollbar {
           width: 2px; /* Thinner scrollbar */

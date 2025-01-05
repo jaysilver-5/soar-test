@@ -3,16 +3,10 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import Sidebar from '@/components/Sidebar';
 import './globals.css';
 import Header from '@/components/Header';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from '@/app/store';
+import Providers from './Providers';
 
 export const metadata: Metadata = {
   title: 'Soar Task',
@@ -21,21 +15,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className=" w-screen min-h-screen flex">
-        <div className="w-fit hidden xl:block">
-          <Sidebar />
-        </div>
-
-        <div className="flex-grow w-full flex full bg-white flex-col">
-          <Header />
-          {children}
-        </div>
-      </body>
+      <Providers>
+          <body className={`max-w-full w-screen min-h-screen flex overflow-x-hidden max-h-screen`}>
+            <div className="w-fit hidden xl:block">
+              <Sidebar />
+            </div>
+            <div className="flex-grow w-full flex full bg-white flex-col">
+              <Header />
+              {children}
+            </div>
+          </body>
+      </Providers>
     </html>
   );
 }

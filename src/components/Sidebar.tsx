@@ -9,6 +9,10 @@ import LoansIcon from './ui/Icons/LoansIcon';
 import ServicesIcon from './ui/Icons/ServicesIcon';
 import PriviledgesIcon from './ui/Icons/PriviledgesIcon';
 import SettingsIcon from './ui/Icons/SettingsIcon';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateSidebarStatus } from '@/app/store/slices/userSlice';
+import { RootState } from '@/app/store';
+
 
 // Define the prop type for the component
 interface SidebarProps {
@@ -16,7 +20,16 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
-  const [active, setActive] = useState('Dashboard');
+  const sidebarStatus = useSelector((state: RootState) => state.user['sidebar-status']);                      
+  const dispatch = useDispatch();
+
+  const handleUpdateSidebarStatus = (name: string) => {
+    if (name === 'Dashboard' || name === 'Setting') {
+      dispatch(updateSidebarStatus(name));
+    }
+  };
+  
+  const [active, setActive] = useState(sidebarStatus || 'Dashboard');
   const [isOpen, setIsOpen] = useState(true);
 
   const menuItems = [
@@ -37,7 +50,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
 
   return (
     <div
-      className={`min-h-full bg-white w-[90%] sm:w-[80%] md:w-[60%] lg:w-[200px] xl:w-[200px] border-r border-gray-200 py-5 fixed lg:relative z-50 transition-transform ${
+      className={`min-h-full 3xl:w-[250px] bg-white w-[90%] sm:w-[80%] md:w-[60%] lg:w-[200px] xl:w-[200px] border-r border-gray-200 py-5 fixed lg:relative z-50 transition-transform overflow-scroll scrollbar-hide max-h-screen ${
         isOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
     >
@@ -82,8 +95,12 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
               key={item.name}
               className={`relative flex items-center space-x-4 pr-4 py-3 cursor-pointer w-full ${
                 isActive ? 'pl-6' : 'pl-10'
-              } ${isActive ? '' : 'hover:bg-gray-50'}`}
-              onClick={() => setActive(item.name)}
+              } ${isActive ? '' : 'hover:bg-gray-100'}`}
+              onClick={() => {
+                setActive(item.name);
+                handleUpdateSidebarStatus(item.name);
+                // setIsOpen(false);
+              }}
             >
               {isActive && (
                 <div className="absolute left-0 top-0 h-full w-[2%] bg-black rounded-r-md pointer-events-none"></div>

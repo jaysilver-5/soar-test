@@ -2,14 +2,18 @@ import React from 'react';
 
 interface CardProps {
   mode: 'light' | 'dark';
+  cardNumber: string;
+  amount: string;
+  cardName: string;
+  expiryDate: string;
 }
 
-const Card: React.FC<CardProps> = ({ mode }) => {
+const Card: React.FC<CardProps> = ({ mode, amount, cardNumber, expiryDate, cardName }) => {
   const isDarkMode = mode === 'dark';
 
   return (
     <div
-      className={`flex justify-between flex-col 3xl:min-w-[350px] 2xl:min-w-[350px] 3xl:w-full 2xl:w-full md:w-full md:min-w-[300px] 3xl:h-[235px] 2xl:h-[235px] min-w-[265px] h-[170px] xl:h-[220px] lg:h-[200px] border border-gray-50 ${
+      className={`flex justify-between flex-col 3xl:min-w-[350px] 2xl:min-w-[350px] 3xl:w-full 2xl:w-full md:w-full md:min-w-[300px] 3xl:h-[235px] 2xl:h-[235px] min-w-[265px] h-[170px] xl:h-[220px] lg:h-[200px] border border-gray-200 ${
         isDarkMode ? 'bg-card-gradient' : 'bg-white'
       } items-center rounded-[25px]`}
     >
@@ -27,7 +31,8 @@ const Card: React.FC<CardProps> = ({ mode }) => {
               isDarkMode ? 'text-white' : 'text-black'
             }`}
           >
-            $5,756
+            {amount} 
+            {/* $5,756 */}
           </p>
         </div>
         <img
@@ -51,7 +56,8 @@ const Card: React.FC<CardProps> = ({ mode }) => {
               isDarkMode ? 'text-white' : 'text-black'
             }`}
           >
-            Eddy Cusuma
+            {cardName}
+            {/* Eddy Cusuma */}
           </p>
         </div>
         <div className="flex flex-col">
@@ -67,7 +73,8 @@ const Card: React.FC<CardProps> = ({ mode }) => {
               isDarkMode ? 'text-white' : 'text-black'
             }`}
           >
-            12/22
+            {expiryDate}
+            {/* 12/22 */}
           </p>
         </div>
       </div>
@@ -82,7 +89,8 @@ const Card: React.FC<CardProps> = ({ mode }) => {
             isDarkMode ? 'text-white' : 'text-black'
           }`}
         >
-          3778 **** **** 1234
+          {cardNumber}
+          {/* 3778 **** **** 1234 */}
         </h3>
         <img
           src={isDarkMode ? '/mastercard-dark.png' : '/mastercard-light.png'}
@@ -90,6 +98,8 @@ const Card: React.FC<CardProps> = ({ mode }) => {
           className="3xl:w-[44px] 2xl:w-[44px] 3xl:h-[30px] 2xl:h-[30px] w-[27px] h-[18px]"
         />
       </div>
+
+      
     </div>
   );
 };

@@ -7,16 +7,18 @@ interface PieChartProps {
   colors: string[];
 }
 
-const IrregularPieChart: React.FC<PieChartProps> = ({ data, colors }) => {
+const PieChart: React.FC<PieChartProps> = ({ data, colors }) => {
   const chartRef = useRef<SVGSVGElement>(null);
 
   // Function to calculate chart size based on screen width
-  const getChartSize = () => {
-    const screenWidth = window.innerWidth;
-    if (screenWidth >= 1440) return 270; // 3xl breakpoint
-    if (screenWidth >= 375) return 200;  // sm breakpoint
-    return 150; // Default size for very small screens
-  };
+// Function to calculate chart size based on screen width
+const getChartSize = () => {
+  const screenWidth = window.innerWidth;
+  if (screenWidth >= 1440) return 290; // Increased from 270
+  if (screenWidth >= 375) return 220; // Increased from 200
+  return 170; // Increased from 150 for very small screens
+};
+
 
   useEffect(() => {
     if (chartRef.current) {
@@ -83,7 +85,7 @@ const IrregularPieChart: React.FC<PieChartProps> = ({ data, colors }) => {
           group
             .append('text')
             .attr('text-anchor', 'middle')
-            .attr('font-size', '12px')
+            .attr('font-size', '16px')
             .attr('fill', '#fff')
             .text(`${d.data.value}%`);
 
@@ -92,7 +94,7 @@ const IrregularPieChart: React.FC<PieChartProps> = ({ data, colors }) => {
             .append('text')
             .attr('dy', '1.2em')
             .attr('text-anchor', 'middle')
-            .attr('font-size', '10px')
+            .attr('font-size', '12px')
             .attr('fill', '#fff')
             .text(d.data.label);
         });
@@ -102,8 +104,7 @@ const IrregularPieChart: React.FC<PieChartProps> = ({ data, colors }) => {
   return <svg ref={chartRef} style={{ border: 'gray' }}></svg>;
 };
 
-export default IrregularPieChart;
-
+export default PieChart;
 
 // 'use client';
 // import React, { useEffect, useRef } from 'react';
