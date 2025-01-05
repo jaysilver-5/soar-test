@@ -1,5 +1,5 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
 
 export interface TransactionItemProps {
   mode: string; // Add new types here
@@ -17,19 +17,19 @@ const TransactionItem: React.FC<TransactionItemProps> = ({
   // Determine icon based on mode
   const getIconSrc = (): string => {
     switch (mode) {
-      case 'deposit':
-        return '/deposit.png';
-      case 'paypal':
-        return '/paypal.png';
-      case 'people':
-        return '/people.png';
+      case "deposit":
+        return "/deposit.png";
+      case "paypal":
+        return "/paypal.png";
+      case "people":
+        return "/people.png";
       default:
-        return '/default.png';
+        return "/default.png";
     }
   };
 
   // Determine text color based on the amount
-  const amountColor = amount < 0 ? 'text-[#FF4B4A]' : 'text-[#41D4A8]';
+  const amountColor = amount < 0 ? "text-[#FF4B4A]" : "text-[#41D4A8]";
 
   return (
     <div className="w-full items-center justify-between flex">

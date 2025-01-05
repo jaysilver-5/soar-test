@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface IconProps {
   width?: string | number;
@@ -9,7 +9,7 @@ interface IconProps {
 const SettingsIcon: React.FC<IconProps> = ({
   width = 25,
   height = 25,
-  fill = '#B1B1B1',
+  fill = "#B1B1B1",
 }) => {
   return (
     <svg

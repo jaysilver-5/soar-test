@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent } from 'react';
+import React, { FC, ChangeEvent } from "react";
 
 interface InputProps {
   label: string;
@@ -24,10 +24,10 @@ const Input: React.FC<InputProps> = ({
       </label>
       <input
         id={id}
-        type={id === 'password' ? 'password' : 'text'}
+        type={id === "password" ? "password" : "text"}
         placeholder={placeholder}
         className={`border text-black mt-2 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all ${
-          !isFull && formSubmitted ? 'border-red-500' : 'border-gray-300'
+          !isFull && formSubmitted ? "border-red-500" : "border-gray-300"
         }`}
         onChange={onChange}
       />

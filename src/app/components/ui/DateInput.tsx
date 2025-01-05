@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface DateInputProps {
   value: string;
@@ -25,7 +25,7 @@ const DateInput: React.FC<DateInputProps> = ({
         id="date-input"
         type="date"
         className={`border border-gray-300 text-black mt-2 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all ${
-          isFull ? 'border-gray-300' : 'border-red-500'
+          isFull ? "border-gray-300" : "border-red-500"
         }`}
         value={value}
         onChange={handleDateChange}

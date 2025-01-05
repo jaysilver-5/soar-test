@@ -1,16 +1,16 @@
-'use client';
-import React from 'react';
-import { IoMenu, IoSettingsOutline } from 'react-icons/io5';
-import SearchBar from './ui/SearchBar';
-import Sidebar from './Sidebar';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateSidebarStatus } from '@/app/store/slices/userSlice';
-import { RootState } from '@/app/store';
+"use client";
+import React from "react";
+import { IoMenu, IoSettingsOutline } from "react-icons/io5";
+import SearchBar from "./ui/SearchBar";
+import Sidebar from "./Sidebar";
+import { useDispatch, useSelector } from "react-redux";
+import { updateSidebarStatus } from "@/app/store/slices/userSlice";
+import { RootState } from "@/app/store";
 
 const Header = () => {
   const [showSideBar, setShowSideBar] = React.useState(false);
   const sidebarStatus = useSelector(
-    (state: RootState) => state.user['sidebar-status'],
+    (state: RootState) => state.user["sidebar-status"],
   );
   const dispatch = useDispatch();
   return (
@@ -60,8 +60,8 @@ const Header = () => {
             {/* Settings Button */}
             <button
               className="bg-[#F5F7FA] rounded-full w-[45px] h-[45px] md:w-[50px] md:h-[50px] flex items-center justify-center hover:bg-blue-100"
-              style={{ minWidth: '45px', minHeight: '45px' }}
-              onClick={() => dispatch(updateSidebarStatus('Setting'))}
+              style={{ minWidth: "45px", minHeight: "45px" }}
+              onClick={() => dispatch(updateSidebarStatus("Setting"))}
             >
               <IoSettingsOutline className="text-[#718EBF] text-xl md:text-2xl" />
             </button>
@@ -69,7 +69,7 @@ const Header = () => {
             {/* Notification Button */}
             <button
               className="bg-[#F5F7FA] rounded-full w-[45px] h-[45px] md:w-[50px] md:h-[50px] flex items-center justify-center hover:bg-blue-100"
-              style={{ minWidth: '45px', minHeight: '45px' }}
+              style={{ minWidth: "45px", minHeight: "45px" }}
             >
               <img
                 src="/notification-icon.png"

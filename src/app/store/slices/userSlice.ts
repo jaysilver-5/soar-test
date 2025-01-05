@@ -1,5 +1,5 @@
 // src/app/store/slices/userSlice.ts
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Transaction {
   name: string;
@@ -12,45 +12,45 @@ interface UserState {
   username: string;
   email: string;
   dob: string;
-  'present-address': string;
-  'permanent-address': string;
+  "present-address": string;
+  "permanent-address": string;
   city: string;
-  'postal-code': string;
+  "postal-code": string;
   country: string;
   transaction: Transaction[];
-  'sidebar-status': string;
+  "sidebar-status": string;
 }
 
 const initialState: UserState = {
-  name: '',
-  username: '',
-  email: '',
-  dob: '',
-  'present-address': '',
-  'permanent-address': '',
-  city: '',
-  'postal-code': '',
-  country: '',
+  name: "",
+  username: "",
+  email: "",
+  dob: "",
+  "present-address": "",
+  "permanent-address": "",
+  city: "",
+  "postal-code": "",
+  country: "",
   transaction: [],
-  'sidebar-status': 'Dashboard',
+  "sidebar-status": "Dashboard",
 };
 
 export const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers: {
     updateUserProfile: (
       state,
-      action: PayloadAction<Partial<Omit<UserState, 'transaction'>>>,
+      action: PayloadAction<Partial<Omit<UserState, "transaction">>>,
     ) => {
-      const { 'sidebar-status': _, ...updatedFields } = action.payload; // Exclude 'sidebar-status'
+      const { "sidebar-status": _, ...updatedFields } = action.payload; // Exclude 'sidebar-status'
       return { ...state, ...updatedFields };
     },
     addTransaction: (state, action: PayloadAction<Transaction>) => {
       state.transaction.push(action.payload);
     },
     updateSidebarStatus: (state, action: PayloadAction<string>) => {
-      state['sidebar-status'] = action.payload;
+      state["sidebar-status"] = action.payload;
     },
   },
 });
