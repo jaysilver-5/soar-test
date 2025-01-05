@@ -59,20 +59,22 @@ Welcome to the Next.js App! This project showcases a variety of features, includ
 
 ### 1. Sidebar State Management
 Redux Toolkit is used to manage the sidebar tabs and the settings form.
-
-![Sidebar Tabs Placeholder](./images/sidebar-tabs.png)
-
 ---
 
 ### 2. Quick Transfer - Error Handling
 Includes error handling for invalid input scenarios.
-
-![Quick Transfer Error Placeholder](./images/quick-transfer-error.png)
-
+![image](https://github.com/user-attachments/assets/5741a2e4-f9dc-4655-a841-9729f65668ce)
 ---
 
 ### 3. Settings Form - Error Handling
 Error feedback for settings form submission.
+
+![image](https://github.com/user-attachments/assets/496b6cbd-8f93-49c8-abcc-faa7babeb36b)
+A modal and red border input showing missed inputs. 
+
+Success modal. While these still need a lot of work. It is a proof of concept
+![image](https://github.com/user-attachments/assets/672103ad-e963-4a25-99e3-62397be8d945)
+
 
 ![Settings Form Error Placeholder](./images/settings-form-error.png)
 
@@ -87,8 +89,7 @@ Both the Quick Transfer and the Settings form display success modals upon succes
 
 ### 5. "See All" Modal for Cards
 Clicking the "See All" button in the Cards section opens a modal displaying all card listings.
-
-![See All Cards Placeholder](./images/see-all-cards.png)
+![image](https://github.com/user-attachments/assets/204c881c-5a49-4840-b397-a4694e066112)
 
 ---
 
@@ -96,6 +97,10 @@ Clicking the "See All" button in the Cards section opens a modal displaying all 
 
 - **Hover & Loading Styles**:
   - The Quick Transfer button includes hover effects and a loading state with a centered loader for a polished user experience.
+
+hover: ![image](https://github.com/user-attachments/assets/eccfb323-346f-4f1d-8555-95c7d57e1a0a)
+loadding:![image](https://github.com/user-attachments/assets/a7f61ea9-6231-4559-a6c5-1f13e4374452)
+
 
 - **Mock API**:
   - All data is fetched from a mock API, enabling a seamless simulation of real-world scenarios.
@@ -105,10 +110,6 @@ Clicking the "See All" button in the Cards section opens a modal displaying all 
 
 ## 📬 Feedback and Contributions
 
-Feel free to raise an issue or submit a pull request if you have suggestions or enhancements.
+Feel free to raise an issue or submit a pull request if you have suggestions or enhancements. This was done under limited time, please beware with me.
 
 ---
-
-## 📝 License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
