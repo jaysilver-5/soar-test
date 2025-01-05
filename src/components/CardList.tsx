@@ -1,6 +1,6 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import Card from './Card';
+"use client";
+import React, { useEffect, useState } from "react";
+import Card from "./Card";
 
 // Define the type for the card data
 interface CardData {
@@ -18,14 +18,14 @@ const CardList: React.FC = () => {
     // Fetch data from the API
     const fetchCardData = async () => {
       try {
-        const response = await fetch('/api/card');
+        const response = await fetch("/api/card");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data: CardData[] = await response.json();
         setCardData(data[0]); // Use the first card object
       } catch (error) {
-        console.error('Error fetching card data:', error);
+        console.error("Error fetching card data:", error);
       }
     };
 
@@ -41,18 +41,18 @@ const CardList: React.FC = () => {
     <div className="flex w-full overflow-x-scroll scrollbar-hide space-x-4 3xl:space-x-8">
       <Card
         mode="dark"
-        cardName={cardData?.cardName || 'Loading...'}
-        amount={cardData?.amount || '$0'}
-        cardNumber={cardData?.cardNumber || '**** **** **** ****'}
-        expiryDate={cardData?.expiryDate || 'MM/YY'}
+        cardName={cardData?.cardName || "Loading..."}
+        amount={cardData?.amount || "$0"}
+        cardNumber={cardData?.cardNumber || "**** **** **** ****"}
+        expiryDate={cardData?.expiryDate || "MM/YY"}
       />
 
       <Card
         mode="dark"
-        cardName={cardData?.cardName || 'Loading...'}
-        amount={cardData?.amount || '$0'}
-        cardNumber={cardData?.cardNumber || '**** **** **** ****'}
-        expiryDate={cardData?.expiryDate || 'MM/YY'}
+        cardName={cardData?.cardName || "Loading..."}
+        amount={cardData?.amount || "$0"}
+        cardNumber={cardData?.cardNumber || "**** **** **** ****"}
+        expiryDate={cardData?.expiryDate || "MM/YY"}
       />
     </div>
   );
